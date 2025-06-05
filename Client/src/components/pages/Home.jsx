@@ -1,12 +1,49 @@
-import React from 'react'
-import ViewBooks from './ViewBooks'
+import React, { useState } from "react";
+import ViewBooks from "./ViewBooks";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const Home = () => {
-  return (
-    <div>
-        <ViewBooks />
-    </div>
-  )
-}
 
-export default Home
+  const [title, setTitle] = useState("");
+  const [releaseYear, setReleaseYear] = useState(0);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8">
+        <h1 className="text-4xl font-bold text-center text-indigo-700 mb-10">
+          📚 Book Management System
+        </h1>
+
+        {/* Book Form */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <Input
+            type="text"
+            // value={title}
+            // onChange={(e) => setTitle(e.target.value)}
+            placeholder="Book Title (e.g., Rich Dad Poor Dad)"
+            className="rounded-xl px-4 py-3 shadow-sm border border-gray-300"
+          />
+          <Input
+            type="number"
+            // value={releaseYear}
+            // onChange={(e) => setReleaseYear(e.target.value)}
+            placeholder="Release Year (e.g., 1999)"
+            className="rounded-xl px-4 py-3 shadow-sm border border-gray-300"
+          />
+          <Button
+            // onClick={handleAddBook}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-3 rounded-xl shadow-sm transition-all"
+          >
+            ➕ Add Book
+          </Button>
+        </div>
+
+        {/* Book Viewer */}
+        <ViewBooks />
+      </div>
+    </div>
+  );
+};
+
+export default Home;
