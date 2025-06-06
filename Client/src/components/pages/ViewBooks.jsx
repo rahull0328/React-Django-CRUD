@@ -1,21 +1,6 @@
 import { useEffect, useState } from "react";
 
-const ViewBooks = () => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
-
-  const fetchBooks = async () => {
-    try {
-      const result = await fetch("http://127.0.0.1:8000/api/books/");
-      const data = await result.json();
-      setBooks(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const ViewBooks = ({books}) => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
