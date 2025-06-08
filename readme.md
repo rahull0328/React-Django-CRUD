@@ -1,8 +1,4 @@
-# JobHive 🚀
-
-JobHive is a dynamic MERN‑stack job portal with a stunning UI ✨. It features smart search & filtering 🔍, plus tailored views for recruiters 🏢 and students 🎓—making job hunting and hiring smooth and intuitive.
-
----
+# React-Django-Crud 🚀
 
 ## Table of Contents 📚
 
@@ -11,10 +7,8 @@ JobHive is a dynamic MERN‑stack job portal with a stunning UI ✨. It features
 - [Project Structure](#project-structure-)  
 - [Setup & Installation](#setup--installation-️)  
   - [Prerequisites](#prerequisites-)  
-  - [Environment Variables](#environment-variables-)  
   - [Backend](#backend-️)  
   - [Frontend](#frontend-)  
-- [Usage](#usage-)  
 - [Contributing](#contributing-)    
 
 ---
