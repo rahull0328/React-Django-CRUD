@@ -54,14 +54,12 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <Input
             type="text"
-            // value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Book Title (e.g., Rich Dad Poor Dad)"
             className="rounded-xl px-4 py-3 shadow-sm border border-gray-300"
           />
           <Input
             type="number"
-            // value={releaseYear}
             onChange={(e) => setReleaseYear(e.target.value)}
             placeholder="Release Year (e.g., 1999)"
             className="rounded-xl px-4 py-3 shadow-sm border border-gray-300"
