@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Pencil } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 import EditBookModal from "./EditBookModal";
 
 const ViewBooks = ({ books }) => {
@@ -54,6 +54,18 @@ const ViewBooks = ({ books }) => {
     }
   };
 
+  const deleteBook = async (pk) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/books/${pk}/`, {
+        method: 'DELETE',
+      })
+
+      setBookList((prev) => prev.filter((books) => books.id !== pk));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="p-6 bg-gradient-to-b from-indigo-50 to-white min-h-screen">
       <h2 className="text-4xl font-bold text-center mb-10 text-indigo-700 tracking-wide">
@@ -73,10 +85,16 @@ const ViewBooks = ({ books }) => {
               {book.release_year}
             </p>
             <Button
-              className="absolute top-4 right-2 text-indigo-600 hover:bg-indigo-600 hover:text-white bg-white border border-indigo-100 shadow-sm"
+              className="absolute top-2 right-15 text-indigo-600 hover:bg-indigo-600 hover:text-white bg-white border border-indigo-100 shadow-sm"
               onClick={() => openEditModal(book)}
             >
               <Pencil size={14} />
+            </Button>
+            <Button
+              className="absolute top-2 right-2 text-indigo-600 hover:bg-indigo-600 hover:text-white bg-white border border-indigo-100 shadow-sm"
+              onClick={() => deleteBook(book.id)}
+            >
+              <Trash size={14} />
             </Button>
           </div>
         ))}
